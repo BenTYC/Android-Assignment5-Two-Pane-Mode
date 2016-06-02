@@ -137,9 +137,16 @@ public class MainActivity extends ActionBarActivity implements ForecastFragment.
             DetailFragment fragment = new DetailFragment();
             fragment.setArguments(args);
 
+            //getSupportFragmentManager().beginTransaction()
+            //        .replace(R.id.weather_detail_container, fragment, DETAILFRAGMENT_TAG)
+            //        .commit();
+
+            /* Assignment: back detail */
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.weather_detail_container, fragment, DETAILFRAGMENT_TAG)
+                    .replace(R.id.weather_detail_container, fragment)
+                    .addToBackStack(null)
                     .commit();
+
         } else {
             Intent intent = new Intent(this, DetailActivity.class)
                     .setData(contentUri);
